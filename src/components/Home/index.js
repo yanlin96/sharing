@@ -47,7 +47,7 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} md={8} justifyContent="center">
             <div className="img-container">
-              {isShow ? <img className="img" src={pic} alt="jenny" /> : ""}
+              {isShow ? <img className="img" src={"https://media.licdn.com/dms/image/D4E03AQEQmdeul3WhBQ/profile-displayphoto-shrink_800_800/0/1668420796498?e=1676505600&v=beta&t=h2ZZ86bU-mQkVUW12y-smbyCAt4mGlV9zzeZvlXwSJk"} alt="jenny" /> : ""}
             </div>
           </Grid>
         </Grid>
