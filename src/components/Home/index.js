@@ -4,14 +4,27 @@ import AnimatedLetters from "../AnimatedLetters";
 import pic from "../../assets/images/img.jpeg";
 
 import Grid from "@mui/material/Grid";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [isShow, setIsShow] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsShow(true);
+    }, 1500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div className="home-page">
       <div className="container">
         <Grid container justifyContent="center">
           <Grid item xs={12} md={4}>
-            <h1 style={{ textAlign: "center" }}>
+            <h1 style={{ textAlign: "center", color: "black" }}>
               <AnimatedLetters
                 strArray={"Jenny's Portfolio".split("")}
                 startIdx={1}
@@ -22,7 +35,9 @@ const Home = () => {
                 startIdx={18}
               />
             </h1>
-            <p style={{ textAlign: "center", fontSize: "20px" }}>
+            <p
+              style={{ textAlign: "center", fontSize: "20px", color: "black" }}
+            >
               {" "}
               <AnimatedLetters
                 strArray={"A new journey to digital world".split("")}
@@ -32,13 +47,13 @@ const Home = () => {
           </Grid>
           <Grid item xs={12} md={8} justifyContent="center">
             <div className="img-container">
-              <img className="img" src={pic} alt="jenny" />
+              {isShow ? <img className="img" src={pic} alt="jenny" /> : ""}
             </div>
           </Grid>
         </Grid>
       </div>
 
-      <Loader type="line-scale" color="#fed002" width={500} />
+      <Loader type="line-scale" color="black" width={500} />
     </div>
   );
 };
